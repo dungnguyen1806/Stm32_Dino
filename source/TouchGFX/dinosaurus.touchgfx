@@ -347,7 +347,7 @@
     "SubFamily": "STM32F429/439",
     "Toolchain": "STM32CubeIDE",
     "Platform": "m4",
-    "ProjectFile": "../STM32F429I_DISCO_REV_E01.ioc",
+    "ProjectFile": "../STM32F429I-dino.ioc",
     "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
     "OptionalComponents": [],
     "AdditionalFeatures": [

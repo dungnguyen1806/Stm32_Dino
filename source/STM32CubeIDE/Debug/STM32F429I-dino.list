@@ -1,5 +1,5 @@
 
-STM32F429I-DISCO.elf:     file format elf32-littlearm
+STM32F429I-dino.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -37,27 +37,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  16 TouchGFX_Framebuffer 00070800  d0000000  d0000000  00076000  2**2
                   ALLOC
- 17 .debug_line   00047b12  00000000  00000000  00075194  2**0
+ 17 .debug_line   00047cc8  00000000  00000000  00075194  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line_str 00000068  00000000  00000000  000bcca6  2**0
+ 18 .debug_line_str 00000068  00000000  00000000  000bce5c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_info   00095e72  00000000  00000000  000bcd0e  2**0
+ 19 .debug_info   00095e72  00000000  00000000  000bcec4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_abbrev 000126b4  00000000  00000000  00152b80  2**0
+ 20 .debug_abbrev 000126b4  00000000  00000000  00152d36  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_aranges 00002e68  00000000  00000000  00165238  2**3
+ 21 .debug_aranges 00002e68  00000000  00000000  001653f0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_str    00110cbd  00000000  00000000  001680a0  2**0
+ 22 .debug_str    00110cbd  00000000  00000000  00168258  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .debug_rnglists 00002e52  00000000  00000000  00278d5d  2**0
+ 23 .debug_rnglists 00002e52  00000000  00000000  00278f15  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 24 .debug_loclists 00015f9c  00000000  00000000  0027bbaf  2**0
+ 24 .debug_loclists 00015f9c  00000000  00000000  0027bd67  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 25 .debug_macro  0002ed46  00000000  00000000  00291b4b  2**0
+ 25 .debug_macro  0002ed46  00000000  00000000  00291d03  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 26 .comment      000000c2  00000000  00000000  002c0891  2**0
+ 26 .comment      000000c2  00000000  00000000  002c0a49  2**0
                   CONTENTS, READONLY
- 27 .debug_frame  00007e28  00000000  00000000  002c0954  2**2
+ 27 .debug_frame  00007e28  00000000  00000000  002c0b0c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
