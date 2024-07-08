@@ -1,1 +1,1 @@
-# Stm32_Dino
+Dinosaur game on STM32 Discovery board
