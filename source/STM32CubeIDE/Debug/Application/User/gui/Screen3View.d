@@ -1,5 +1,5 @@
 Application/User/gui/Screen3View.o: \
- C:/TouchGFXProjects/dinosaurus/TouchGFX/gui/src/screen3_screen/Screen3View.cpp \
+ C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen3_screen/Screen3View.cpp \
  ../../TouchGFX/gui/include/gui/screen3_screen/Screen3View.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/screen3_screen/Screen3ViewBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \

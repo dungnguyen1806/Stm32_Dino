@@ -1,5 +1,5 @@
 Middlewares/FreeRTOS/croutine.o: \
- C:/TouchGFXProjects/dinosaurus/Middlewares/Third_Party/FreeRTOS/Source/croutine.c \
+ C:/TouchGFXProjects/Stm32_Dino/source/Middlewares/Third_Party/FreeRTOS/Source/croutine.c \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
