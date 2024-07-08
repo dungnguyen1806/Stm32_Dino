@@ -3,7 +3,6 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:737:18:virtual void touchgfx::HAL::setAnimationStorage(void*)	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:876:30:virtual touchgfx::FlashDataReader* touchgfx::HAL::getFlashDataReader() const	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:1025:18:virtual void touchgfx::HAL::taskDelay(uint16_t)	0	static
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:1052:22:virtual uint16_t touchgfx::HAL::getTFTCurrentLine()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:1063:21:virtual touchgfx::DMAType touchgfx::HAL::getDMAType()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:1189:18:virtual void touchgfx::HAL::InvalidateCache()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:1199:18:virtual void touchgfx::HAL::FlushCache()	0	static

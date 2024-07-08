@@ -68,7 +68,10 @@ void Error_Handler(void);
 #define MCU_ACTIVE_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
-
+#define B1_Pin GPIO_PIN_0
+#define B1_GPIO_Port GPIOA
+#define LD3_Pin GPIO_PIN_13
+#define LD3_GPIO_Port GPIOG
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
