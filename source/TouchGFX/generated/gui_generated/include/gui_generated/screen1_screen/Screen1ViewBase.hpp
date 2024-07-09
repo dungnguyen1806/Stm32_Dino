@@ -10,6 +10,7 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
+#include <touchgfx/widgets/AnimatedImage.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -29,6 +30,8 @@ protected:
     touchgfx::Box __background;
     touchgfx::Image bg;
     touchgfx::ButtonWithLabel start;
+    touchgfx::AnimatedImage ground;
+    touchgfx::AnimatedImage dino;
 
 private:
 

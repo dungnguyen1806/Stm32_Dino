@@ -4,6 +4,7 @@
 #include <gui_generated/screen2_screen/Screen2ViewBase.hpp>
 #include <touchgfx/Color.hpp>
 #include <images/BitmapDatabase.hpp>
+#include <texts/TextKeysAndLanguages.hpp>
 
 Screen2ViewBase::Screen2ViewBase()
 {
@@ -29,6 +30,7 @@ Screen2ViewBase::Screen2ViewBase()
     dinoc.setBitmaps(BITMAP_DINOC0_ID, BITMAP_DINOC1_ID);
     dinoc.setUpdateTicksInterval(1);
     dinoc.startAnimation(false, true, false);
+    dinoc.setVisible(false);
     add(dinoc);
 
     dino.setXY(18, 140);
@@ -43,28 +45,17 @@ Screen2ViewBase::Screen2ViewBase()
     bird.startAnimation(false, true, false);
     add(bird);
 
-    point.setPosition(62, 27, 150, 53);
-    d1.setXY(121, 9);
-    d1.setBitmap(touchgfx::Bitmap(BITMAP_C0_ID));
-    point.add(d1);
+    highestScoreTextArea.setXY(40, 28);
+    highestScoreTextArea.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    highestScoreTextArea.setLinespacing(0);
+    highestScoreTextArea.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2B9N));
+    add(highestScoreTextArea);
 
-    d2.setXY(112, 9);
-    d2.setBitmap(touchgfx::Bitmap(BITMAP_C0_ID));
-    point.add(d2);
-
-    d3.setXY(102, 9);
-    d3.setBitmap(touchgfx::Bitmap(BITMAP_C0_ID));
-    point.add(d3);
-
-    d4.setXY(93, 9);
-    d4.setBitmap(touchgfx::Bitmap(BITMAP_C0_ID));
-    point.add(d4);
-
-    d5.setXY(84, 9);
-    d5.setBitmap(touchgfx::Bitmap(BITMAP_C0_ID));
-    point.add(d5);
-
-    add(point);
+    textAreaPoint.setXY(191, 28);
+    textAreaPoint.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    textAreaPoint.setLinespacing(0);
+    textAreaPoint.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LH76));
+    add(textAreaPoint);
 }
 
 Screen2ViewBase::~Screen2ViewBase()

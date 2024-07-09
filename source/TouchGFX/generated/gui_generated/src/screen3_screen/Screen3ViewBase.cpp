@@ -4,6 +4,7 @@
 #include <gui_generated/screen3_screen/Screen3ViewBase.hpp>
 #include <touchgfx/Color.hpp>
 #include <images/BitmapDatabase.hpp>
+#include <texts/TextKeysAndLanguages.hpp>
 
 Screen3ViewBase::Screen3ViewBase()
 {
@@ -15,13 +16,9 @@ Screen3ViewBase::Screen3ViewBase()
     bg.setBitmap(touchgfx::Bitmap(BITMAP_BG_ID));
     add(bg);
 
-    ground.setXY(0, 186);
+    ground.setXY(0, 184);
     ground.setBitmap(touchgfx::Bitmap(BITMAP_GROUND0_ID));
     add(ground);
-
-    button1.setXY(142, 144);
-    button1.setBitmaps(touchgfx::Bitmap(BITMAP_RETRY_ID), touchgfx::Bitmap(BITMAP_RETRY_ID));
-    add(button1);
 
     gameover.setPosition(45, 74, 231, 80);
     g.setXY(37, 15);
@@ -57,6 +54,16 @@ Screen3ViewBase::Screen3ViewBase()
     gameover.add(r);
 
     add(gameover);
+
+    button1.setXY(142, 144);
+    button1.setBitmaps(touchgfx::Bitmap(BITMAP_RETRY_ID), touchgfx::Bitmap(BITMAP_RETRY_ID));
+    add(button1);
+
+    textArea1.setXY(126, 111);
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    textArea1.setLinespacing(0);
+    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_3XVM));
+    add(textArea1);
 }
 
 Screen3ViewBase::~Screen3ViewBase()

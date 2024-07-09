@@ -17,13 +17,25 @@ Screen1ViewBase::Screen1ViewBase() :
     bg.setBitmap(touchgfx::Bitmap(BITMAP_BG_ID));
     add(bg);
 
-    start.setXY(40, 95);
+    start.setXY(40, 63);
     start.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_INACTIVE_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_INACTIVE_ID));
     start.setLabelText(touchgfx::TypedText(T___SINGLEUSE_8WMC));
     start.setLabelColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     start.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
     start.setAction(buttonCallback);
     add(start);
+
+    ground.setXY(0, 184);
+    ground.setBitmaps(BITMAP_GROUND0_ID, BITMAP_GROUND2_ID);
+    ground.setUpdateTicksInterval(1);
+    ground.startAnimation(false, true, false);
+    add(ground);
+
+    dino.setXY(12, 140);
+    dino.setBitmaps(BITMAP_DINO1_ID, BITMAP_DINO3_ID);
+    dino.setUpdateTicksInterval(1);
+    dino.startAnimation(false, true, false);
+    add(dino);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

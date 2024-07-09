@@ -9,8 +9,9 @@
 #include <gui/screen3_screen/Screen3Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
-#include <touchgfx/widgets/Button.hpp>
 #include <touchgfx/containers/Container.hpp>
+#include <touchgfx/widgets/Button.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class Screen3ViewBase : public touchgfx::View<Screen3Presenter>
 {
@@ -30,7 +31,6 @@ protected:
     touchgfx::Box __background;
     touchgfx::Image bg;
     touchgfx::Image ground;
-    touchgfx::Button button1;
     touchgfx::Container gameover;
     touchgfx::Image g;
     touchgfx::Image a;
@@ -40,6 +40,8 @@ protected:
     touchgfx::Image v;
     touchgfx::Image e1;
     touchgfx::Image r;
+    touchgfx::Button button1;
+    touchgfx::TextAreaWithOneWildcard textArea1;
 
 private:
 

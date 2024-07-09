@@ -10,7 +10,7 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/AnimatedImage.hpp>
-#include <touchgfx/containers/Container.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class Screen2ViewBase : public touchgfx::View<Screen2Presenter>
 {
@@ -34,12 +34,8 @@ protected:
     touchgfx::AnimatedImage dinoc;
     touchgfx::AnimatedImage dino;
     touchgfx::AnimatedImage bird;
-    touchgfx::Container point;
-    touchgfx::Image d1;
-    touchgfx::Image d2;
-    touchgfx::Image d3;
-    touchgfx::Image d4;
-    touchgfx::Image d5;
+    touchgfx::TextAreaWithOneWildcard highestScoreTextArea;
+    touchgfx::TextAreaWithOneWildcard textAreaPoint;
 
 private:
 

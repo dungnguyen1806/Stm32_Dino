@@ -16,7 +16,7 @@
             "Type": "ButtonWithLabel",
             "Name": "start",
             "X": 40,
-            "Y": 95,
+            "Y": 63,
             "Width": 240,
             "Height": 50,
             "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_inactive.png",
@@ -29,6 +29,29 @@
             },
             "TextRotation": "0",
             "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\medium_rounded_inactive.json"
+          },
+          {
+            "Type": "AnimatedImage",
+            "Name": "ground",
+            "Y": 184,
+            "Width": 320,
+            "Height": 11,
+            "FileNameFirst": "ground0.png",
+            "FileNameLast": "ground2.png",
+            "UpdateTicksInterval": 10,
+            "StartOnLoad": true
+          },
+          {
+            "Type": "AnimatedImage",
+            "Name": "dino",
+            "X": 12,
+            "Y": 140,
+            "Width": 44,
+            "Height": 49,
+            "FileNameFirst": "dino1.png",
+            "FileNameLast": "dino3.png",
+            "UpdateTicksInterval": 10,
+            "StartOnLoad": true
           }
         ],
         "Interactions": [
@@ -85,6 +108,7 @@
             "Y": 159,
             "Width": 59,
             "Height": 30,
+            "Visible": false,
             "FileNameFirst": "dinoc0.png",
             "FileNameLast": "dinoc1.png",
             "UpdateTicksInterval": 10,
@@ -115,59 +139,28 @@
             "StartOnLoad": true
           },
           {
-            "Type": "Container",
-            "Name": "point",
-            "X": 62,
-            "Y": 27,
-            "Width": 150,
-            "Height": 53,
-            "Components": [
-              {
-                "Type": "Image",
-                "Name": "d1",
-                "X": 121,
-                "Y": 9,
-                "Width": 9,
-                "Height": 11,
-                "RelativeFilename": "c0.png"
-              },
-              {
-                "Type": "Image",
-                "Name": "d2",
-                "X": 112,
-                "Y": 9,
-                "Width": 9,
-                "Height": 11,
-                "RelativeFilename": "c0.png"
-              },
-              {
-                "Type": "Image",
-                "Name": "d3",
-                "X": 102,
-                "Y": 9,
-                "Width": 9,
-                "Height": 11,
-                "RelativeFilename": "c0.png"
-              },
-              {
-                "Type": "Image",
-                "Name": "d4",
-                "X": 93,
-                "Y": 9,
-                "Width": 9,
-                "Height": 11,
-                "RelativeFilename": "c0.png"
-              },
-              {
-                "Type": "Image",
-                "Name": "d5",
-                "X": 84,
-                "Y": 9,
-                "Width": 9,
-                "Height": 11,
-                "RelativeFilename": "c0.png"
-              }
-            ]
+            "Type": "TextArea",
+            "Name": "highestScoreTextArea",
+            "X": 40,
+            "Y": 28,
+            "Width": 45,
+            "Height": 18,
+            "TextId": "__SingleUse_2B9N",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {}
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textAreaPoint",
+            "X": 191,
+            "Y": 28,
+            "Width": 74,
+            "Height": 21,
+            "TextId": "__SingleUse_LH76",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {}
           }
         ],
         "Interactions": [
@@ -196,20 +189,10 @@
           {
             "Type": "Image",
             "Name": "ground",
-            "Y": 186,
+            "Y": 184,
             "Width": 320,
             "Height": 11,
             "RelativeFilename": "ground0.png"
-          },
-          {
-            "Type": "Button",
-            "Name": "button1",
-            "X": 142,
-            "Y": 144,
-            "Width": 36,
-            "Height": 32,
-            "Pressed": "retry.png",
-            "Released": "retry.png"
           },
           {
             "Type": "Container",
@@ -292,6 +275,28 @@
                 "RelativeFilename": "r.png"
               }
             ]
+          },
+          {
+            "Type": "Button",
+            "Name": "button1",
+            "X": 142,
+            "Y": 144,
+            "Width": 36,
+            "Height": 32,
+            "Pressed": "retry.png",
+            "Released": "retry.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 126,
+            "Y": 111,
+            "Width": 65,
+            "Height": 18,
+            "TextId": "__SingleUse_3XVM",
+            "TextRotation": "0",
+            "AutoSize": true,
+            "Wildcard1": {}
           }
         ],
         "Interactions": []
