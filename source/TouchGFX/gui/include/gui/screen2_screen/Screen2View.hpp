@@ -17,7 +17,7 @@ public:
     virtual void checkScore();
     virtual bool checkCollision();
 //    virtual int16_t rand();
-//    virtual void writeHighestScore(int);
+    virtual void writeHighestScore(int);
     virtual int readHighestScore();
     uint32_t tick;
     uint32_t Rx_Data[5];

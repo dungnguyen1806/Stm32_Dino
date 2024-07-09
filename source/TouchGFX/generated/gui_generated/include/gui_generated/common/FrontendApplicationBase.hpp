@@ -17,13 +17,16 @@ public:
 
     virtual void changeToStartScreen()
     {
-        gotoScreen2ScreenNoTransition();
+        gotoScreen1ScreenNoTransition();
     }
 
-    // Screen2
-    void gotoScreen2ScreenNoTransition();
+    // Screen1
+    void gotoScreen1ScreenNoTransition();
 
+    // Screen2
     void gotoScreen2ScreenWipeTransitionSouth();
+
+    void gotoScreen2ScreenNoTransition();
 
     // Screen3
     void gotoScreen3ScreenSlideTransitionEast();
@@ -33,10 +36,13 @@ protected:
     FrontendHeap& frontendHeap;
     Model& model;
 
-    // Screen2
-    void gotoScreen2ScreenNoTransitionImpl();
+    // Screen1
+    void gotoScreen1ScreenNoTransitionImpl();
 
+    // Screen2
     void gotoScreen2ScreenWipeTransitionSouthImpl();
+
+    void gotoScreen2ScreenNoTransitionImpl();
 
     // Screen3
     void gotoScreen3ScreenSlideTransitionEastImpl();
