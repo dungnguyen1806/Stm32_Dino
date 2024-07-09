@@ -6,22 +6,28 @@
 #include "string.h"
 #include "stdio.h"
 #include <math.h>
+
 Screen2View::Screen2View()
 {
-	tick = 0;
-	horizontal = 320;
-	currentObs = 0;
-	seed = 1;
-	jumpDis = -4;
-	isJumping = false;
-	BASE_HEIGHT = 134;
-	MAX_HEIGHT = 70;
+
+    SCREEN_WIDTH = 320;
+
+    isJumping = false;
+	BASE_HEIGHT = 140;
 	currentHeight = 1;
-	counter = 0;
-	enemySpeed = 3;
-	obsNumber = 0;
-	BASE_BIRD_HEIGHT = 124;
 	timeJump = 0;
+
+    currentEnemy = 0;
+    enemyPositionX = SCREEN_WIDTH;
+    enemySpeed = 2;
+
+	// seed = 1;
+	// jumpDis = -4;
+	// MAX_HEIGHT = 70;
+	// counter = 0;
+	// obsNumber = 0;
+	// BASE_BIRD_HEIGHT = 124;
+	tick = 0;
 	highestScore = 0;
 }
 
@@ -42,10 +48,16 @@ void Screen2View::setupScreen()
 
     dino.setXY(25, 140);
     dino.startAnimation(false, true, true);
+    dino.setUpdateTicksInterval(10);
 
     dinoc.setXY(21, 161);
     dinoc.startAnimation(false, true, true);
+    dinoc.setUpdateTicksInterval(10);
     dinoc.setVisible(false);
+
+    cacti1.setXY(SCREEN_WIDTH, 157);
+    cacti1.setVisible(true);
+    bird.setXY(SCREEN_WIDTH, 96);
 }
 
 
@@ -53,20 +65,86 @@ extern osMessageQueueId_t joyStickQueueHandle;
 void Screen2View::handleTickEvent() {
 	Screen2ViewBase::handleTickEvent();
 
+    // Handle joystick input
+	uint32_t count = osMessageQueueGetCount(joyStickQueueHandle);
+	if(count > 0){
+		handleJoystickEvent(count);
+	}
+
+    // Handle enemy movement
+    switch (currentEnemy) {
+        case 0:
+            cacti1.setX(enemyPositionX);
+            break;
+        case 1:
+            bird.setX(enemyPositionX);
+            break;
+    }
+    enemyPositionX -= enemySpeed;
+
+    if (enemyPositionX < -50) {
+        // currentEnemy = rand() % 2;
+        currentEnemy = 1 - currentEnemy;
+        enemyPositionX = SCREEN_WIDTH;
+
+        switch (currentEnemy) {
+            case 0:
+                cacti1.setX(enemyPositionX);
+                cacti1.setVisible(true);
+                bird.setVisible(false);
+                break;
+            case 1:
+                bird.setX(enemyPositionX);
+                bird.setVisible(true);
+                cacti1.setVisible(false);
+                break;
+        }
+    }
+
+    if (isJumping) {
+        dinoJump();
+    }
+	invalidate();
+}
+
+void Screen2View::handleJoystickEvent(uint32_t count){
     uint32_t Joystick;
     uint16_t JoystickX, JoystickY;
+    for(int i = 0; i < count; i++){
+        osMessageQueueGet(joyStickQueueHandle, &Joystick, NULL, osWaitForever);
+        JoystickX = Joystick >> 16;
+        JoystickY = Joystick & 0xFFFF;
 
-    osMessageQueueGet(joyStickQueueHandle, &Joystick, NULL, osWaitForever);
-    JoystickX = Joystick >> 16;
-    JoystickY = Joystick & 0xFFFF;
-
-    if (JoystickY < 64) {
-    	dino.setVisible(false);
-    	dinoc.setVisible(true);
-    } else {
-    	dino.setVisible(true);
-    	dinoc.setVisible(false);
+        if ((JoystickY < 64) && (!isJumping)) {
+            dino.setVisible(false);
+            dinoc.setVisible(true);
+        } else if ((JoystickY > 192) && (!isJumping)) {
+            timeJump = 0;
+            isJumping = true;
+        } else {
+            dino.setVisible(true);
+            dinoc.setVisible(false);
+        }
     }
+}
+
+void Screen2View::dinoJump(){
+	dinoc.setVisible(false);
+	dino.setVisible(true);
+	dino.stopAnimation();
+	timeJump++;
+	int a = -15; //acceleration
+	int v0  = 65; // base spd
+	currentHeight = round(BASE_HEIGHT - a*timeJump*timeJump/100 - v0*timeJump/10);//y = a*t*t + v0*t + y0
+	dino.setY(currentHeight);
+
+	// reset state after landing
+	if (dino.getY() >= BASE_HEIGHT){
+		dino.setY(BASE_HEIGHT);
+		dino.startAnimation(false, true, true);
+		isJumping = false;
+		currentHeight = 1;
+	}
 }
 
 void Screen2View::tearDownScreen()
