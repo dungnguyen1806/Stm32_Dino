@@ -6,7 +6,8 @@
 #include <images/BitmapDatabase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 
-Screen3ViewBase::Screen3ViewBase()
+Screen3ViewBase::Screen3ViewBase() :
+    buttonCallback(this, &Screen3ViewBase::buttonCallbackHandler)
 {
     __background.setPosition(0, 0, 320, 240);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -16,7 +17,7 @@ Screen3ViewBase::Screen3ViewBase()
     bg.setBitmap(touchgfx::Bitmap(BITMAP_BG_ID));
     add(bg);
 
-    ground.setXY(0, 184);
+    ground.setXY(0, 180);
     ground.setBitmap(touchgfx::Bitmap(BITMAP_GROUND0_ID));
     add(ground);
 
@@ -55,13 +56,17 @@ Screen3ViewBase::Screen3ViewBase()
 
     add(gameover);
 
-    button1.setXY(142, 144);
+    button1.setXY(133, 138);
     button1.setBitmaps(touchgfx::Bitmap(BITMAP_RETRY_ID), touchgfx::Bitmap(BITMAP_RETRY_ID));
+    button1.setAction(buttonCallback);
     add(button1);
 
     textArea1.setXY(126, 111);
     textArea1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     textArea1.setLinespacing(0);
+    Unicode::snprintf(textArea1Buffer, TEXTAREA1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_4SZT).getText());
+    textArea1.setWildcard(textArea1Buffer);
+    textArea1.resizeToCurrentText();
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_3XVM));
     add(textArea1);
 }
@@ -74,4 +79,15 @@ Screen3ViewBase::~Screen3ViewBase()
 void Screen3ViewBase::setupScreen()
 {
 
+}
+
+void Screen3ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &button1)
+    {
+        //Interaction1
+        //When button1 clicked change screen to Screen2
+        //Go to Screen2 with no screen transition
+        application().gotoScreen2ScreenNoTransition();
+    }
 }

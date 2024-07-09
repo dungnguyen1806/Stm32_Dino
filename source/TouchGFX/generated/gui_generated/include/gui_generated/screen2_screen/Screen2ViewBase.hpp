@@ -37,6 +37,14 @@ protected:
     touchgfx::TextAreaWithOneWildcard highestScoreTextArea;
     touchgfx::TextAreaWithOneWildcard textAreaPoint;
 
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t HIGHESTSCORETEXTAREA_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar highestScoreTextAreaBuffer[HIGHESTSCORETEXTAREA_SIZE];
+    static const uint16_t TEXTAREAPOINT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar textAreaPointBuffer[TEXTAREAPOINT_SIZE];
+
 private:
 
 };

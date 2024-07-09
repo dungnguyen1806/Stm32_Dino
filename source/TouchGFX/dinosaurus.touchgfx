@@ -33,7 +33,7 @@
           {
             "Type": "AnimatedImage",
             "Name": "ground",
-            "Y": 184,
+            "Y": 180,
             "Width": 320,
             "Height": 11,
             "FileNameFirst": "ground0.png",
@@ -141,26 +141,34 @@
           {
             "Type": "TextArea",
             "Name": "highestScoreTextArea",
-            "X": 40,
-            "Y": 28,
-            "Width": 45,
-            "Height": 18,
-            "TextId": "__SingleUse_2B9N",
+            "X": 34,
+            "Y": 38,
+            "Width": 103,
+            "Height": 16,
+            "TextId": "__SingleUse_4RMC",
             "TextRotation": "0",
             "AutoSize": true,
-            "Wildcard1": {}
+            "Wildcard1": {
+              "TextId": "__SingleUse_JVXV",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
           },
           {
             "Type": "TextArea",
             "Name": "textAreaPoint",
-            "X": 191,
-            "Y": 28,
-            "Width": 74,
-            "Height": 21,
-            "TextId": "__SingleUse_LH76",
+            "X": 203,
+            "Y": 38,
+            "Width": 55,
+            "Height": 16,
+            "TextId": "__SingleUse_0E7D",
             "TextRotation": "0",
             "AutoSize": true,
-            "Wildcard1": {}
+            "Wildcard1": {
+              "TextId": "__SingleUse_YKYT",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
           }
         ],
         "Interactions": [
@@ -170,7 +178,10 @@
               "Type": "TriggerNone"
             },
             "Action": {
-              "Type": "ActionNone"
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Screen3"
             }
           }
         ]
@@ -189,7 +200,7 @@
           {
             "Type": "Image",
             "Name": "ground",
-            "Y": 184,
+            "Y": 180,
             "Width": 320,
             "Height": 11,
             "RelativeFilename": "ground0.png"
@@ -279,8 +290,8 @@
           {
             "Type": "Button",
             "Name": "button1",
-            "X": 142,
-            "Y": 144,
+            "X": 133,
+            "Y": 138,
             "Width": 36,
             "Height": 32,
             "Pressed": "retry.png",
@@ -291,15 +302,32 @@
             "Name": "textArea1",
             "X": 126,
             "Y": 111,
-            "Width": 65,
+            "Width": 50,
             "Height": 18,
             "TextId": "__SingleUse_3XVM",
             "TextRotation": "0",
             "AutoSize": true,
-            "Wildcard1": {}
+            "Wildcard1": {
+              "TextId": "__SingleUse_4SZT",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "button1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen2"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],

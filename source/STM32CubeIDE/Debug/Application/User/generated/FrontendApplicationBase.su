@@ -23,6 +23,7 @@
 ../../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:18:18:virtual void FrontendApplicationBase::changeToStartScreen()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/NoTransition.hpp:35:18:virtual void touchgfx::NoTransition::handleTickEvent()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/Transition.hpp:109:11:touchgfx::Transition::FullSolidRect::~FullSolidRect()	0	static
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/SlideTransition.hpp:39:7:touchgfx::SlideTransition<touchgfx::EAST>::~SlideTransition()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/WipeTransition.hpp:37:7:touchgfx::WipeTransition<touchgfx::SOUTH>::~WipeTransition()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/NoTransition.hpp:31:7:touchgfx::NoTransition::~NoTransition()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:424:8:touchgfx::Callback<FrontendApplicationBase>::~Callback()	0	static
@@ -37,14 +38,21 @@
 ../../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:16:13:virtual FrontendApplicationBase::~FrontendApplicationBase()	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/WipeTransition.hpp:37:7:virtual touchgfx::WipeTransition<touchgfx::SOUTH>::~WipeTransition()	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/Transition.hpp:109:11:virtual touchgfx::Transition::FullSolidRect::~FullSolidRect()	8	static
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/SlideTransition.hpp:39:7:virtual touchgfx::SlideTransition<touchgfx::EAST>::~SlideTransition()	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/Transition.hpp:89:18:virtual void touchgfx::Transition::invalidate()	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:121:18:virtual void touchgfx::Drawable::invalidateContent() const	0	static
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/SlideTransition.hpp:146:18:void touchgfx::SlideTransition<templateDirection>::tearDown() [with touchgfx::Direction templateDirection = touchgfx::EAST]	0	static
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/SlideTransition.hpp:154:18:void touchgfx::SlideTransition<templateDirection>::init() [with touchgfx::Direction templateDirection = touchgfx::EAST]	16	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/WipeTransition.hpp:72:18:void touchgfx::WipeTransition<templateDirection>::handleTickEvent() [with touchgfx::Direction templateDirection = touchgfx::SOUTH]	24	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp:45:18:virtual void touchgfx::Widget::getLastChild(int16_t, int16_t, touchgfx::Drawable**)	0	static
 ../../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:59:18:virtual void touchgfx::MVPApplication::handlePendingScreenTransition()	8	static
-C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:56:6:void FrontendApplicationBase::gotoScreen2ScreenWipeTransitionSouthImpl()	48	static
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/SlideTransition.hpp:87:18:void touchgfx::SlideTransition<templateDirection>::handleTickEvent() [with touchgfx::Direction templateDirection = touchgfx::EAST]	16	static
 C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:45:6:void FrontendApplicationBase::gotoScreen2ScreenNoTransitionImpl()	40	static
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:233:10:void touchgfx::Drawable::setPosition(int16_t, int16_t, int16_t, int16_t)	24	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:56:6:void FrontendApplicationBase::gotoScreen2ScreenWipeTransitionSouthImpl()	48	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:69:6:void FrontendApplicationBase::gotoScreen3ScreenSlideTransitionEastImpl()	48	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:268:17:static touchgfx::LCD& touchgfx::HAL::lcd()	0	static
 C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:21:1:FrontendApplicationBase::FrontendApplicationBase(Model&, FrontendHeap&)	24	static
 C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:39:6:void FrontendApplicationBase::gotoScreen2ScreenNoTransition()	0	static
 C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:50:6:void FrontendApplicationBase::gotoScreen2ScreenWipeTransitionSouth()	0	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:63:6:void FrontendApplicationBase::gotoScreen3ScreenSlideTransitionEast()	0	static

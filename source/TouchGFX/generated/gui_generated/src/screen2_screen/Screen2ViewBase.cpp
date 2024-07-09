@@ -45,16 +45,22 @@ Screen2ViewBase::Screen2ViewBase()
     bird.startAnimation(false, true, false);
     add(bird);
 
-    highestScoreTextArea.setXY(40, 28);
+    highestScoreTextArea.setXY(34, 38);
     highestScoreTextArea.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     highestScoreTextArea.setLinespacing(0);
-    highestScoreTextArea.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2B9N));
+    Unicode::snprintf(highestScoreTextAreaBuffer, HIGHESTSCORETEXTAREA_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_JVXV).getText());
+    highestScoreTextArea.setWildcard(highestScoreTextAreaBuffer);
+    highestScoreTextArea.resizeToCurrentText();
+    highestScoreTextArea.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4RMC));
     add(highestScoreTextArea);
 
-    textAreaPoint.setXY(191, 28);
+    textAreaPoint.setXY(203, 38);
     textAreaPoint.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     textAreaPoint.setLinespacing(0);
-    textAreaPoint.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LH76));
+    Unicode::snprintf(textAreaPointBuffer, TEXTAREAPOINT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_YKYT).getText());
+    textAreaPoint.setWildcard(textAreaPointBuffer);
+    textAreaPoint.resizeToCurrentText();
+    textAreaPoint.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0E7D));
     add(textAreaPoint);
 }
 

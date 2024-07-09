@@ -25,7 +25,7 @@ Screen1ViewBase::Screen1ViewBase() :
     start.setAction(buttonCallback);
     add(start);
 
-    ground.setXY(0, 184);
+    ground.setXY(0, 180);
     ground.setBitmaps(BITMAP_GROUND0_ID, BITMAP_GROUND2_ID);
     ground.setUpdateTicksInterval(1);
     ground.startAnimation(false, true, false);
