@@ -27,6 +27,12 @@ public:
 
     virtual ~Screen3Presenter() {}
 
+    int getScore(){
+    	return model->getScore();
+    }
+    int getHighestScore(){
+    	return model->getHighestScore();
+    }
 private:
     Screen3Presenter();
 

@@ -27,6 +27,16 @@ public:
 
     virtual ~Screen2Presenter() {}
 
+    void saveScore(int savedScore){
+    	model->saveScore(savedScore);
+    }
+    void saveHighestScore(int savedHighestScore){
+    	model->saveHighestScore(savedHighestScore);
+    }
+    int getHighestScore(){
+        	return model->getHighestScore();
+    }
+
 private:
     Screen2Presenter();
 

@@ -14,8 +14,25 @@ public:
     }
 
     void tick();
+
+    void saveScore(int savedScore){
+    	score = savedScore;
+    }
+
+    int getScore(){
+    	return score;
+    }
+    void saveHighestScore(int savedHighestScore){
+    	highestScore = savedHighestScore;
+    }
+
+	int getHighestScore(){
+		return highestScore;
+	}
 protected:
     ModelListener* modelListener;
+    int score;
+	int highestScore;
 };
 
 #endif // MODEL_HPP
