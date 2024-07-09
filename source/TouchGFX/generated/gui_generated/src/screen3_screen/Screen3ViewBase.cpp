@@ -61,7 +61,7 @@ Screen3ViewBase::Screen3ViewBase() :
     button1.setAction(buttonCallback);
     add(button1);
 
-    textArea1.setXY(126, 111);
+    textArea1.setXY(127, 111);
     textArea1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     textArea1.setLinespacing(0);
     Unicode::snprintf(textArea1Buffer, TEXTAREA1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_4SZT).getText());

@@ -21,7 +21,7 @@
       <Text Id="__SingleUse_4RMC" Alignment="Left" TypographyId="counter">
         <Translation Language="GB">Best: &lt;value&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_3XVM" Alignment="Center" TypographyId="Default">
+      <Text Id="__SingleUse_3XVM" Alignment="Center" TypographyId="counter">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_8WMC" Alignment="Center" TypographyId="Default">

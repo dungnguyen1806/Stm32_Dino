@@ -300,10 +300,10 @@
           {
             "Type": "TextArea",
             "Name": "textArea1",
-            "X": 126,
+            "X": 127,
             "Y": 111,
-            "Width": 50,
-            "Height": 18,
+            "Width": 55,
+            "Height": 16,
             "TextId": "__SingleUse_3XVM",
             "TextRotation": "0",
             "AutoSize": true,
