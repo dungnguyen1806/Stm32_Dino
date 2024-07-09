@@ -6,4 +6,6 @@ C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2Vie
 ../../TouchGFX/gui/include/gui/screen2_screen/Screen2View.hpp:11:13:virtual Screen2View::~Screen2View()	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:343:10:void touchgfx::Drawable::setXY(int16_t, int16_t)	16	static
 C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:9:1:Screen2View::Screen2View()	8	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:180:6:void Flash_Read_Data(uint32_t, uint32_t*, uint16_t)	8	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:192:5:virtual int Screen2View::readHighestScore()	16	static
 C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:28:6:virtual void Screen2View::setupScreen()	16	static
