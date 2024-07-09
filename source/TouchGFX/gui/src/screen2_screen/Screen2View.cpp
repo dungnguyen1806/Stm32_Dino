@@ -11,22 +11,21 @@ Screen2View::Screen2View()
 {
 
     SCREEN_WIDTH = 320;
+	BASE_DINO_Y = 140;
+	BASE_DINOC_Y = 161;
+	BASE_CACTUS_Y = 156;
+	MIN_BIRD_Y = 106;
+	MAX_BIRD_Y = 140;
+	BASE_ENEMY_SPEED = 2;
 
     isJumping = false;
-	BASE_HEIGHT = 140;
-	currentHeight = 1;
-	timeJump = 0;
+	currentDinoHeight = 1;
+	timeDinoJump = 0;
 
-    currentEnemy = 0;
+    enemySpeed = BASE_ENEMY_SPEED;
     enemyPositionX = SCREEN_WIDTH;
-    enemySpeed = 2;
+    currentEnemy = 0;
 
-	// seed = 1;
-	// jumpDis = -4;
-	// MAX_HEIGHT = 70;
-	// counter = 0;
-	// obsNumber = 0;
-	// BASE_BIRD_HEIGHT = 124;
 	tick = 0;
 	highestScore = 1222;
 }
@@ -46,28 +45,42 @@ void Screen2View::setupScreen()
     ground.setXY(0, 180);
     ground.startAnimation(false, true, true);
 
-    dino.setXY(25, 140);
+    dino.setXY(25, BASE_DINO_Y);
     dino.startAnimation(false, true, true);
     dino.setUpdateTicksInterval(10);
 
-    dinoc.setXY(21, 161);
+    dinoc.setXY(21, BASE_DINOC_Y);
     dinoc.startAnimation(false, true, true);
     dinoc.setUpdateTicksInterval(10);
     dinoc.setVisible(false);
 
-    cacti1.setXY(SCREEN_WIDTH, 157);
+    cacti1.setXY(SCREEN_WIDTH, BASE_CACTUS_Y);
     cacti1.setVisible(true);
-    bird.setXY(SCREEN_WIDTH, 96);
+
+    bird.setXY(SCREEN_WIDTH, MAX_BIRD_Y);
     bird.startAnimation(false, true, true);
     bird.setUpdateTicksInterval(10);
 }
 
+
+uint32_t Screen2View::randint(void) {
+    static uint32_t seed = 0; 
+
+    if (seed == 0) {
+        seed = SysTick->VAL;
+    }
+    seed = (seed * 1103515245 + 12345) & 0x7FFFFFFF; 
+    seed ^= SysTick->VAL;
+
+    return seed;
+}
 
 extern osMessageQueueId_t joyStickQueueHandle;
 void Screen2View::handleTickEvent() {
 	Screen2ViewBase::handleTickEvent();
 	tick++;
 
+	// Check for collision
 	bool gameOver = checkCollision();
 	if (gameOver) {
 		if(counter > highestScore) highestScore = counter;
@@ -95,9 +108,9 @@ void Screen2View::handleTickEvent() {
     enemyPositionX -= enemySpeed;
 
     if (enemyPositionX < -50) {
-        // currentEnemy = rand() % 2;
-        currentEnemy = 1 - currentEnemy;
-        enemyPositionX = SCREEN_WIDTH;
+        currentEnemy = randint() % 2;
+		enemySpeed = BASE_ENEMY_SPEED + randint() % 3; // randomize the speed of the enemy (2 - 4) pixels per tick
+        enemyPositionX = SCREEN_WIDTH + randint() % 30; // randomize the position of the enemy (320 - 350) pixels from the right edge
 
         switch (currentEnemy) {
             case 0:
@@ -106,7 +119,8 @@ void Screen2View::handleTickEvent() {
                 bird.setVisible(false);
                 break;
             case 1:
-                bird.setX(enemyPositionX);
+				bird.setX(enemyPositionX);
+				bird.setY(randint() % (MAX_BIRD_Y - MIN_BIRD_Y + 1) + MIN_BIRD_Y);
                 bird.setVisible(true);
                 cacti1.setVisible(false);
                 break;
@@ -133,7 +147,7 @@ void Screen2View::handleJoystickEvent(uint32_t count){
             dino.setVisible(false);
             dinoc.setVisible(true);
         } else if ((JoystickY > 192) && (!isJumping)) {
-            timeJump = 0;
+            timeDinoJump = 0;
             isJumping = true;
         } else {
             dino.setVisible(true);
@@ -146,18 +160,19 @@ void Screen2View::dinoJump(){
 	dinoc.setVisible(false);
 	dino.setVisible(true);
 	dino.stopAnimation();
-	timeJump++;
+
+	timeDinoJump++;
 	int a = -15; //acceleration
 	int v0  = 65; // base spd
-	currentHeight = round(BASE_HEIGHT - a*timeJump*timeJump/100 - v0*timeJump/10);//y = a*t*t + v0*t + y0
-	dino.setY(currentHeight);
+	currentDinoHeight = round(BASE_DINO_Y - a*timeDinoJump*timeDinoJump/100 - v0*timeDinoJump/10);//y = a*t*t + v0*t + y0
+	dino.setY(currentDinoHeight);
 
 	// reset state after landing
-	if (dino.getY() >= BASE_HEIGHT){
-		dino.setY(BASE_HEIGHT);
+	if (dino.getY() >= BASE_DINO_Y){
+		dino.setY(BASE_DINO_Y);
 		dino.startAnimation(false, true, true);
 		isJumping = false;
-		currentHeight = 1;
+		currentDinoHeight = 1;
 	}
 }
 
@@ -179,7 +194,7 @@ void Screen2View::checkScore(){
 bool Screen2View::checkCollision(){
 	int16_t dinoT, dinoR, dinoB, dinoL;
 	if (dino.isVisible()){
-		int deviation = BASE_HEIGHT - dino.getY(); // amount of deviation of the dino from the ground
+		int deviation = BASE_DINO_Y - dino.getY(); // amount of deviation of the dino from the ground
 		if (deviation > 8) deviation = 8; // max deviation is 8, which reaches dino's legs
 		dinoL = dino.getX() + 10;
 		dinoT = dino.getY() + 10;
