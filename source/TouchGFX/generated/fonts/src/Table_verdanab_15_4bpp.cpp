@@ -18,9 +18,13 @@ KEEP extern const touchgfx::GlyphNode glyphs_verdanab_15_4bpp[] FONT_TABLE_LOCAT
     {   612, 0x003A,   4,   9,   9,   1,   6,   0,   0, 0x00 },
     {   630, 0x003F,   8,  12,  12,   1,   9,   0,   0, 0x00 },
     {   678, 0x0042,  10,  12,  12,   1,  11,   0,   0, 0x00 },
-    {   738, 0x0065,  10,   9,   9,   0,  10,   0,   0, 0x00 },
-    {   783, 0x0073,   9,   9,   9,   0,   9,   0,   0, 0x00 },
-    {   828, 0x0074,   7,  12,  12,   0,   7,   0,   0, 0x00 }
+    {   738, 0x0053,  11,  12,  12,   0,  11,   0,   0, 0x00 },
+    {   810, 0x0063,   9,   9,   9,   0,   9,   0,   0, 0x00 },
+    {   855, 0x0065,  10,   9,   9,   0,  10,   0,   0, 0x00 },
+    {   900, 0x006F,  10,   9,   9,   0,  10,   0,   0, 0x00 },
+    {   945, 0x0072,   7,   9,   9,   1,   7,   0,   0, 0x00 },
+    {   981, 0x0073,   9,   9,   9,   0,   9,   0,   0, 0x00 },
+    {  1026, 0x0074,   7,  12,  12,   0,   7,   0,   0, 0x00 }
 };
 
 // verdanab_15_4bpp
@@ -38,6 +42,6 @@ touchgfx::GeneratedFont& getFont_verdanab_15_4bpp();
 
 touchgfx::GeneratedFont& getFont_verdanab_15_4bpp()
 {
-    static touchgfx::GeneratedFont verdanab_15_4bpp(glyphs_verdanab_15_4bpp, 17, 15, 15, 0, 0, 4, 1, 0, 0, unicodes_verdanab_15_4bpp, kerning_verdanab_15_4bpp, 63, 0, 0, 0);
+    static touchgfx::GeneratedFont verdanab_15_4bpp(glyphs_verdanab_15_4bpp, 21, 15, 15, 0, 0, 4, 1, 0, 1, unicodes_verdanab_15_4bpp, kerning_verdanab_15_4bpp, 63, 0, 0, 0);
     return verdanab_15_4bpp;
 }

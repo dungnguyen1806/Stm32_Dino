@@ -13,7 +13,7 @@
         <Translation Language="GB">00000</Translation>
       </Text>
       <Text Id="__SingleUse_0E7D" Alignment="Left" TypographyId="counter">
-        <Translation Language="GB">&lt;value&gt;</Translation>
+        <Translation Language="GB">Score: &lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_JVXV" Alignment="Left" TypographyId="counter">
         <Translation Language="GB">00000</Translation>

@@ -14,8 +14,8 @@ public:
     virtual void handleTickEvent();
     virtual void dinoJump();
     virtual void handleJoystickEvent(uint32_t);
-//    virtual void checkScore();
-//    virtual bool checkCollision();
+    virtual void checkScore();
+    virtual bool checkCollision();
 //    virtual int16_t rand();
 //    virtual void writeHighestScore(int);
     virtual int readHighestScore();

@@ -1,2 +1,2 @@
-C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/generated/fonts/src/Table_verdanab_15_4bpp.cpp:41:172:void __tcf_0()	0	static
-C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/generated/fonts/src/Table_verdanab_15_4bpp.cpp:39:26:touchgfx::GeneratedFont& getFont_verdanab_15_4bpp()	72	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/generated/fonts/src/Table_verdanab_15_4bpp.cpp:45:172:void __tcf_0()	0	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/generated/fonts/src/Table_verdanab_15_4bpp.cpp:43:26:touchgfx::GeneratedFont& getFont_verdanab_15_4bpp()	72	static

@@ -1,13 +1,15 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	0	static
-C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:150:6:virtual void Screen2View::tearDownScreen()	0	static
-C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:110:6:virtual void Screen2View::handleJoystickEvent(uint32_t)	32	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:169:6:virtual bool Screen2View::checkCollision()	20	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:207:6:virtual void Screen2View::tearDownScreen()	0	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:114:6:virtual void Screen2View::handleJoystickEvent(uint32_t)	32	static
 ../../TouchGFX/gui/include/gui/screen2_screen/Screen2View.hpp:11:13:Screen2View::~Screen2View()	8	static
 ../../TouchGFX/gui/include/gui/screen2_screen/Screen2View.hpp:11:13:virtual Screen2View::~Screen2View()	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:343:10:void touchgfx::Drawable::setXY(int16_t, int16_t)	16	static
 C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:10:1:Screen2View::Screen2View()	8	static
-C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:258:6:void Flash_Read_Data(uint32_t, uint32_t*, uint16_t)	8	static
-C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:270:5:virtual int Screen2View::readHighestScore()	16	static
-C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:65:6:virtual void Screen2View::handleTickEvent()	8	static
-C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:34:6:virtual void Screen2View::setupScreen()	16	static
-C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:131:6:virtual void Screen2View::dinoJump()	24	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:315:6:void Flash_Read_Data(uint32_t, uint32_t*, uint16_t)	8	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:327:5:virtual int Screen2View::readHighestScore()	16	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:67:6:virtual void Screen2View::handleTickEvent()	8	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:154:6:virtual void Screen2View::checkScore()	16	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:34:6:virtual void Screen2View::setupScreen()	24	static
+C:/TouchGFXProjects/Stm32_Dino/source/TouchGFX/gui/src/screen2_screen/Screen2View.cpp:135:6:virtual void Screen2View::dinoJump()	24	static

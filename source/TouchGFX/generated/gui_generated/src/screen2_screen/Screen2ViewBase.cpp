@@ -45,7 +45,7 @@ Screen2ViewBase::Screen2ViewBase()
     bird.startAnimation(false, true, false);
     add(bird);
 
-    highestScoreTextArea.setXY(34, 38);
+    highestScoreTextArea.setXY(34, 18);
     highestScoreTextArea.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     highestScoreTextArea.setLinespacing(0);
     Unicode::snprintf(highestScoreTextAreaBuffer, HIGHESTSCORETEXTAREA_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_JVXV).getText());
@@ -54,7 +54,7 @@ Screen2ViewBase::Screen2ViewBase()
     highestScoreTextArea.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4RMC));
     add(highestScoreTextArea);
 
-    textAreaPoint.setXY(203, 38);
+    textAreaPoint.setXY(34, 45);
     textAreaPoint.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     textAreaPoint.setLinespacing(0);
     Unicode::snprintf(textAreaPointBuffer, TEXTAREAPOINT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_YKYT).getText());

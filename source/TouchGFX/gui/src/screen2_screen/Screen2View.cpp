@@ -28,7 +28,7 @@ Screen2View::Screen2View()
 	// obsNumber = 0;
 	// BASE_BIRD_HEIGHT = 124;
 	tick = 0;
-	highestScore = 0;
+	highestScore = 1222;
 }
 
 void Screen2View::setupScreen()
@@ -36,7 +36,7 @@ void Screen2View::setupScreen()
     Screen2ViewBase::setupScreen();
 
     dinoc.setVisible(false);
-    highestScore = readHighestScore();
+//    highestScore = readHighestScore();
     Unicode::snprintf(highestScoreTextAreaBuffer, HIGHESTSCORETEXTAREA_SIZE, "%d", highestScore);
     highestScoreTextArea.invalidate();
     Unicode::snprintf(textAreaPointBuffer, TEXTAREAPOINT_SIZE, "%d", counter);
@@ -58,6 +58,8 @@ void Screen2View::setupScreen()
     cacti1.setXY(SCREEN_WIDTH, 157);
     cacti1.setVisible(true);
     bird.setXY(SCREEN_WIDTH, 96);
+    bird.startAnimation(false, true, true);
+    bird.setUpdateTicksInterval(10);
 }
 
 
@@ -100,6 +102,8 @@ void Screen2View::handleTickEvent() {
                 break;
         }
     }
+
+    checkScore();
 
     if (isJumping) {
         dinoJump();
@@ -146,6 +150,59 @@ void Screen2View::dinoJump(){
 		currentHeight = 1;
 	}
 }
+
+void Screen2View::checkScore(){
+	//printout the point
+	if(tick % 5 == 0) counter++;
+	if(counter < highestScore){
+		Unicode::snprintf(textAreaPointBuffer, TEXTAREAPOINT_SIZE, "%d", counter);
+		textAreaPoint.invalidate();
+		Unicode::snprintf(highestScoreTextAreaBuffer, HIGHESTSCORETEXTAREA_SIZE, "%d", highestScore);
+		highestScoreTextArea.invalidate();
+	}else{
+		textAreaPoint.setVisible(false);
+		Unicode::snprintf(highestScoreTextAreaBuffer, HIGHESTSCORETEXTAREA_SIZE, "%d", counter);
+		highestScoreTextArea.invalidate();
+	}
+}
+
+bool Screen2View::checkCollision(){
+	int16_t dinoT, dinoR, dinoB, dinoL;
+	if (dino.isVisible()){
+		int deviation = BASE_HEIGHT - dino.getY(); // amount of deviation of the dino from the ground
+		if (deviation > 8) deviation = 8; // max deviation is 8, which reaches dino's legs
+		dinoL = dino.getX() + 10;
+		dinoT = dino.getY() + 10;
+		// simulate the skew of the dino's lower body using the deviation value
+		dinoR = dino.getX() + dino.getWidth() - 10 - deviation;
+		dinoB = dino.getY() + dino.getHeight() - 10;
+	} else {
+		dinoL = dinoc.getX();
+		dinoT = dinoc.getY() + 10;
+		dinoR = dinoc.getX() + dinoc.getWidth();
+		dinoB = dinoc.getY() + dinoc.getHeight();
+	}
+
+	int16_t obsT, obsR, obsB, obsL;
+	if (currentEnemy == 0){
+		obsL = cacti1.getX();
+		obsT = cacti1.getY();
+		obsR = cacti1.getX() + cacti1.getWidth();
+		obsB = cacti1.getY() + cacti1.getHeight();
+	} else {
+		obsL = bird.getX();
+		obsT = bird.getY();
+		obsR = bird.getX() + bird.getWidth();
+		obsB = bird.getY() + bird.getHeight();
+	}
+
+	if (dinoR >= obsL && dinoL <= obsR && dinoB >= obsT && dinoT <= obsB){
+		return true;
+	}
+
+	return false;
+}
+
 
 void Screen2View::tearDownScreen()
 {
