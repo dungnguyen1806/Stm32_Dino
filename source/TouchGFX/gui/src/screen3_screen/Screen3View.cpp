@@ -21,9 +21,10 @@ void Screen3View::handleTickEvent() {
 	Screen3ViewBase::handleTickEvent();
 
     // Move to the second screen
-	uint16_t count = osMessageQueueGetCount(buttonPressQueueHandle);
+	uint8_t count = osMessageQueueGetCount(buttonPressQueueHandle);
 	if(count > 0){
-        osMessageQueueReset(buttonPressQueueHandle);        
+        uint8_t Rx_Data;
+        osMessageQueueGet(buttonPressQueueHandle, &Rx_Data, NULL, 0);
         static_cast<FrontendApplication*>(Application::getInstance())->gotoScreen2ScreenWipeTransitionEast();
 	}
 }

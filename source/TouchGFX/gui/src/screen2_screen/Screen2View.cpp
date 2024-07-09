@@ -82,7 +82,6 @@ void Screen2View::handleTickEvent() {
 
 	// Check for collision
 	bool gameOver = checkCollision();
-	gameOver = false;
 	if (gameOver) {
 		if(counter > highestScore) highestScore = counter;
 		presenter->saveScore(counter);

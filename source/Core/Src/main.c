@@ -100,13 +100,6 @@ const osThreadAttr_t hardware_pollin_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
-/* Definitions for uart_task */
-osThreadId_t uart_taskHandle;
-const osThreadAttr_t uart_task_attributes = {
-  .name = "uart_task",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
-};
 /* Definitions for joyStickQueue */
 osMessageQueueId_t joyStickQueueHandle;
 const osMessageQueueAttr_t joyStickQueue_attributes = {
@@ -136,7 +129,6 @@ static void MX_USART1_UART_Init(void);
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 void start_hardware_polling_task(void *argument);
-void start_uart_task(void *argument);
 
 /* USER CODE BEGIN PFP */
 static void BSP_SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_CommandTypeDef *Command);
@@ -242,7 +234,7 @@ int main(void)
   joyStickQueueHandle = osMessageQueueNew (16, sizeof(uint32_t), &joyStickQueue_attributes);
 
   /* creation of buttonPressQueue */
-  buttonPressQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &buttonPressQueue_attributes);
+  buttonPressQueueHandle = osMessageQueueNew (1, sizeof(uint8_t), &buttonPressQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -257,9 +249,6 @@ int main(void)
 
   /* creation of hardware_pollin */
   hardware_pollinHandle = osThreadNew(start_hardware_polling_task, NULL, &hardware_pollin_attributes);
-
-  /* creation of uart_task */
-  uart_taskHandle = osThreadNew(start_uart_task, NULL, &uart_task_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1160,14 +1149,14 @@ void start_hardware_polling_task(void *argument)
 	uint8_t data[] = {0, 0, 0, 0};
 	uint16_t JoystickX, JoystickY;
 	uint32_t Joystick;
-  uint16_t buttonPressed = 1;
+  uint8_t buttonPressed = 1;
 
 	for(;;)
 	{
 		if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_SET)
 		{
 		  osMessageQueuePut(buttonPressQueueHandle, &buttonPressed, 0, 10);
-      osDelay(200); // Debounce delay
+		  osDelay(200); // Debounce delay
 		}
 
 		HAL_ADC_Start(&hadc1);
@@ -1181,31 +1170,6 @@ void start_hardware_polling_task(void *argument)
 		osDelay(100);
 	}
   /* USER CODE END start_hardware_polling_task */
-}
-
-/* USER CODE BEGIN Header_start_uart_task */
-/**
-* @brief Function implementing the uart_task thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_start_uart_task */
-void start_uart_task(void *argument)
-{
-  /* USER CODE BEGIN start_uart_task */
-  /* Infinite loop */
-  for(;;)
-  {
-	  char mess[20];
-	  if (osMessageQueueGetCount(joyStickQueueHandle) > 0)
-	  {
-		  uint32_t x;
-		  osMessageQueueGet(joyStickQueueHandle, &x, 0, 10);
-		  sprintf(mess, "%3d, %3d\n", x>>16, x&0xFFFF);
-		  HAL_UART_Transmit(&huart1, mess, strlen(mess), 10);
-	  }
-  }
-  /* USER CODE END start_uart_task */
 }
 
 /**
