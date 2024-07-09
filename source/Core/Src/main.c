@@ -251,7 +251,7 @@ int main(void)
   hardware_pollinHandle = osThreadNew(start_hardware_polling_task, NULL, &hardware_pollin_attributes);
 
   /* creation of uart_task */
-  uart_taskHandle = osThreadNew(start_uart_task, NULL, &uart_task_attributes);
+//  uart_taskHandle = osThreadNew(start_uart_task, NULL, &uart_task_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */

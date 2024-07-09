@@ -48,7 +48,18 @@ Application/User/gui/Screen2View.o: \
  ../../TouchGFX/gui/include/gui/model/ModelListener.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AnimatedImage.hpp
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AnimatedImage.hpp \
+ ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
+ ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ ../../Core/Inc/FreeRTOSConfig.h \
+ ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+ ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+ ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ ../../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ ../../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ ../../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+ ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 ../../TouchGFX/gui/include/gui/screen2_screen/Screen2View.hpp:
 ../../TouchGFX/generated/gui_generated/include/gui_generated/screen2_screen/Screen2ViewBase.hpp:
 ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp:
@@ -98,3 +109,14 @@ Application/User/gui/Screen2View.o: \
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AnimatedImage.hpp:
+../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
+../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
+../../Core/Inc/FreeRTOSConfig.h:
+../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
+../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
+../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
+../../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
+../../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
+../../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+../../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
+../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
