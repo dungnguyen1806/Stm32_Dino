@@ -87,7 +87,7 @@ void Screen2View::handleTickEvent() {
 		presenter->saveScore(counter);
 		presenter->saveHighestScore(highestScore);
 //		writeHighestScore(highestScore);
-		static_cast<FrontendApplication*>(Application::getInstance())->gotoScreen3ScreenSlideTransitionEast();;
+		static_cast<FrontendApplication*>(Application::getInstance())->gotoScreen3ScreenNoTransition();;
 	}
 
     // Handle joystick input

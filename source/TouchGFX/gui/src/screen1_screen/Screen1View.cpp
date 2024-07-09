@@ -21,7 +21,7 @@ void Screen1View::handleTickEvent() {
 	if(count > 0){
         uint8_t Rx_Data;
         osMessageQueueGet(buttonPressQueueHandle, &Rx_Data, NULL, 0);
-        static_cast<FrontendApplication*>(Application::getInstance())->gotoScreen2ScreenWipeTransitionEast();
+        static_cast<FrontendApplication*>(Application::getInstance())->gotoScreen2ScreenNoTransition();
 	}
 }
 

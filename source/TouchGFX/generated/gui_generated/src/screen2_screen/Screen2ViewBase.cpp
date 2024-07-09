@@ -33,7 +33,7 @@ Screen2ViewBase::Screen2ViewBase()
     dinoc.setVisible(false);
     add(dinoc);
 
-    dino.setXY(18, 140);
+    dino.setXY(12, 140);
     dino.setBitmaps(BITMAP_DINO2_ID, BITMAP_DINO3_ID);
     dino.setUpdateTicksInterval(1);
     dino.startAnimation(false, true, false);
