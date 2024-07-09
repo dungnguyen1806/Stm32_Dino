@@ -1,4 +1,6 @@
 #include <gui/screen3_screen/Screen3View.hpp>
+#include <gui/screen2_screen/Screen2View.hpp>
+#include <cmsis_os.h>
 
 Screen3View::Screen3View()
 {
@@ -12,6 +14,18 @@ void Screen3View::setupScreen()
 
     Unicode::snprintf(textArea1Buffer, TEXTAREA1_SIZE, "%d", score);
 
+}
+
+extern osMessageQueueId_t buttonPressQueueHandle;
+void Screen3View::handleTickEvent() {
+	Screen3ViewBase::handleTickEvent();
+
+    // Move to the second screen
+	uint16_t count = osMessageQueueGetCount(buttonPressQueueHandle);
+	if(count > 0){
+        osMessageQueueReset(buttonPressQueueHandle);        
+        static_cast<FrontendApplication*>(Application::getInstance())->gotoScreen2ScreenWipeTransitionEast();
+	}
 }
 
 void Screen3View::tearDownScreen()

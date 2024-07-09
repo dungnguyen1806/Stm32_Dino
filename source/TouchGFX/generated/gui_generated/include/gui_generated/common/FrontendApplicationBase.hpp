@@ -26,6 +26,8 @@ public:
     // Screen2
     void gotoScreen2ScreenWipeTransitionSouth();
 
+    void gotoScreen2ScreenWipeTransitionEast();
+
     void gotoScreen2ScreenNoTransition();
 
     // Screen3
@@ -41,6 +43,8 @@ protected:
 
     // Screen2
     void gotoScreen2ScreenWipeTransitionSouthImpl();
+
+    void gotoScreen2ScreenWipeTransitionEastImpl();
 
     void gotoScreen2ScreenNoTransitionImpl();
 

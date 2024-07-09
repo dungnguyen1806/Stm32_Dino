@@ -112,6 +112,11 @@ osMessageQueueId_t joyStickQueueHandle;
 const osMessageQueueAttr_t joyStickQueue_attributes = {
   .name = "joyStickQueue"
 };
+/* Definitions for buttonPressQueue */
+osMessageQueueId_t buttonPressQueueHandle;
+const osMessageQueueAttr_t buttonPressQueue_attributes = {
+  .name = "buttonPressQueue"
+};
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -236,6 +241,9 @@ int main(void)
   /* creation of joyStickQueue */
   joyStickQueueHandle = osMessageQueueNew (16, sizeof(uint32_t), &joyStickQueue_attributes);
 
+  /* creation of buttonPressQueue */
+  buttonPressQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &buttonPressQueue_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -251,7 +259,7 @@ int main(void)
   hardware_pollinHandle = osThreadNew(start_hardware_polling_task, NULL, &hardware_pollin_attributes);
 
   /* creation of uart_task */
-//  uart_taskHandle = osThreadNew(start_uart_task, NULL, &uart_task_attributes);
+  uart_taskHandle = osThreadNew(start_uart_task, NULL, &uart_task_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1152,12 +1160,14 @@ void start_hardware_polling_task(void *argument)
 	uint8_t data[] = {0, 0, 0, 0};
 	uint16_t JoystickX, JoystickY;
 	uint32_t Joystick;
+  uint16_t buttonPressed = 1;
 
 	for(;;)
 	{
 		if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == GPIO_PIN_SET)
 		{
-		  osMessageQueuePut(joyStickQueueHandle, &data, 0, 10);
+		  osMessageQueuePut(buttonPressQueueHandle, &buttonPressed, 0, 10);
+      osDelay(200); // Debounce delay
 		}
 
 		HAL_ADC_Start(&hadc1);
