@@ -17,8 +17,6 @@ public:
     virtual void checkScore();
     virtual bool checkCollision();
     virtual uint32_t randint();
-//    virtual void writeHighestScore(int);
-//    virtual int readHighestScore();
     uint32_t Rx_Data[5];
 
     int SCREEN_WIDTH;
